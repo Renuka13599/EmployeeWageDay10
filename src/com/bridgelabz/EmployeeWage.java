@@ -1,25 +1,39 @@
 package com.bridgelabz;
+import java.util.random;
 
 public class EmployeeWage {
-    public static double IS_FULL_TIME = 2;
-    public static double IS_PART_TIME = 1;
-   public static double EMP_WAGE_PER_HR = 20;
+    public static void empWageStatus(int num){
+        int Wage_Per_Hr= 20;
+        int Day_Hrs = 8;
+        int PartTime_Hrs = 8;
 
-    public static void main(String[] args) {
-        int empHrs = 0;
-        int empWage = 0;
-        //Computation
-        double empCheck = Math.floor(Math.Random() * 10) % 3;
-        if (empCheck == IS_PART_TIME)
-            empHrs = 4;
-        else if (empCheck == IS_FULL_TIME)
-            empHrs = 8;
-        else
-            empHrs = 0;
-        empWage = empHrs * EMP_RATE_PER_HR;
-        System.out.println("Emp Wage:" + empWage);
+        switch (num){
+            case 1:
+                System.out.println("Employee Present");
+                System.out.println("DailyWage = " + Wage_Per_Hr * Day_Hrs);
+                break;
+            case 2:
+                System.out.println("Employee Present");
+                System.out.println("DailyWage with Part Time = " + Wage_Per_Hr * (Day_Hrs + PartTime_Hrs));
+                break;
+            case 0:
+                System.out.println("Employee Absent");
+                System.out.println("DailyWage = "+0);
+        }
     }
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Employee Wage Computation Program");
+
+        Random random = new Random();
+        int r = random.nextInt(3);
+        empWageStatus(r);
+    }
+
 }
+
+
+
+
 
 
 
